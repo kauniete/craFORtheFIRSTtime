@@ -3,31 +3,32 @@ import ReactDOM from "react-dom";
 import "./index.css";
 
 function App() {
+  //objects
   const data = [
     {
       name: "Jonas",
       hobbies: ["js", "beer"],
-      email: "jofh@kea.dk"
+      email: "jofh@kea.dk",
+      kids: 3
     },
     {
       name: "Peter",
       hobbies: ["js", "cats"],
-      email: "petl@kea.dk"
+      email: "petl@kea.dk",
+      kids: 0
     },
     {
       name: "Ida",
       hobbies: ["sprints", "business"],
-      email: "idwh@kea.dk"
+      email: "idwh@kea.dk",
+      kids: 1
     }
   ];
+  //map method used to apply data to teacher object
+
   const teachers = data.map(teacher => {
-    return (
-      <Teacher
-        name={teacher.name}
-        email={teacher.email}
-        hobbies={teacher.hobbies}
-      />
-    );
+    // below spread method spreads data
+    return <Teacher {...teacher} />;
   });
   /*const test = [
     //we need to turn this data into data like above and then render it
