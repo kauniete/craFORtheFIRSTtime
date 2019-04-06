@@ -1,12 +1,57 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function App() {
+  const data = [
+    {
+      name: "Jonas",
+      hobbies: ["js", "beer"],
+      email: "jofh@kea.dk"
+    },
+    {
+      name: "Peter",
+      hobbies: ["js", "cats"],
+      email: "petl@kea.dk"
+    },
+    {
+      name: "Ida",
+      hobbies: ["sprints", "business"],
+      email: "idwh@kea.dk"
+    }
+  ];
+  const teachers = data.map(teacher => {
+    return (
+      <Teacher
+        name={teacher.name}
+        email={teacher.email}
+        hobbies={teacher.hobbies}
+      />
+    );
+  });
+  /*const test = [
+    //we need to turn this data into data like above and then render it
+    <Teacher name="Ole" email="a@a" />,
+    <Teacher name="Bo" email="b@a" />
+  ];*/
+  return (
+    <div id="App">
+      <header>Header</header>
+      {teachers}
+      <footer>Footer</footer>
+    </div>
+  );
+}
+function Teacher(props) {
+  // below is like a template (inside articles)
+  return (
+    <articles>
+      <header>
+        <h1>{props.name}</h1>
+        <p>{props.email}</p>
+      </header>
+      <h2>Hobbies</h2>
+    </articles>
+  );
+}
+ReactDOM.render(<App />, document.getElementById("root"));
