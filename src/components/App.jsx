@@ -8,7 +8,8 @@ export default function App() {
       name: "Jonas",
       hobbies: ["js", "beer"],
       email: "jofh@kea.dk",
-      kids: 3
+      kids: 3,
+      car: "Berlingo"
     },
     {
       id: 343,
